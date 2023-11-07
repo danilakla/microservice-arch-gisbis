@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  config:
+    import: configserver:http://localhost:8888
+  application:
+    name: render-service
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/maprender
+    password: 123
+    username: danla
+gateway:
+  url: http://localhost:8080
